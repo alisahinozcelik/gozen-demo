@@ -1,10 +1,10 @@
 # gozen-demo
 Gözen Holding Demo
 
-make sure that gulp, webpack, webpack-dev-server, typings, typescript installed globally
+make sure that gulp, webpack, typings, typescript installed globally
 
 ```
-npm i -g gulp webpack webpack-dev-server typings typescript
+npm i -g gulp-cli webpack webpack-dev-server typings typescript
 ```
 
 * npm install
