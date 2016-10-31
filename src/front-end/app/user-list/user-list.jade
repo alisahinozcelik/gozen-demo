@@ -1,0 +1,36 @@
+include ../.common/common.jade
+
+.container
+	.row
+		.col-xs-12
+			table.table.table-stiped
+				thead
+					tr
+						th Avatar
+						th İsim
+						th E-mail
+						th Followers
+						th
+				tbody
+					tr(*ngIf="loading")
+						td(colspan="5")
+							+progress()
+					tr(*ngFor="let user of users; let i = index;")
+						td
+							.img([style.background-image]="'url('+user.avatar_url+')'",
+									 [routerLink]="['/user', user.login]")
+						td {{user.name}}
+						td {{user.email}}
+						td {{user.followers}}
+						td.text-right
+							button.btn.btn-danger((click)="replaceUser(i)") X
+	.row
+		.col-xs-12
+			nav.text-center
+				ul.pagination
+					li([class.disabled]="pageId === 1")
+						a(href="#", (click)="pageId !== 1 && navigate($event, -1)") &laquo;
+					li(*ngFor="let no of pageCount", routerLinkActive="active")
+						a([routerLink]="['/list', no]") {{no}}
+					li([class.disabled]="pageId === pageCount.length")
+						a(href="#", (click)="pageId !== pageCount.length && navigate($event, 1)") &raquo;

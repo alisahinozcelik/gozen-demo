@@ -1,0 +1,14 @@
+<html lang="tr">
+	<head>
+		<title><%= webpackConfig.metadata.title %></title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<% if (webpackConfig.metadata.isDevServer) { %>
+		<script src="/webpack-dev-server.js"></script>
+		<% } %>
+		<base href="/" />
+	</head>
+	<body>
+		<app></app>
+	</body>
+</html>

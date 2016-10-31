@@ -1,0 +1,8 @@
+/node_modules
+/.tmp
+/dist
+/.vscode
+/typings
+npm-debug.log*
+
+/src/front-end/app/app.constants.ts

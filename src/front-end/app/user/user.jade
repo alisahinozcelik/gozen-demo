@@ -1,0 +1,23 @@
+include ../.common/common.jade
+
+.container
+	.row
+		.col-sm-4
+			.img([style.background-image]="'url('+user.avatar_url+')'")
+			div {{user.name}}
+			div {{user.email}}
+		.col-sm-8
+			table.table.table-striped
+				thead
+					tr
+						th Name
+						th Language
+						th.text-right Stargazers
+				tbody
+					tr(*ngIf="loading")
+						td(colspan="5")
+							+progress()
+					tr(*ngFor="let repo of repos")
+						td {{repo.name}}
+						td {{repo.language}}
+						td.text-right {{repo.stargazers_count}}
